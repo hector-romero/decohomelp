@@ -1,0 +1,643 @@
+//= require "reset"
+//= require "jquery.mobile-1.2.0-beta.1"
+//= require "jquery.booklet.1.4.0"
+
+/*------ VIEW GENERIC AND RESET ------*/
+h1
+    font-size: 1.8em
+h2
+    font-size: 1.2em
+p
+    margin: 0
+    padding: 0
+.ui-content .ui-listview
+    margin: 0px
+.ui-content
+    padding: 0
+.ui-shadow-inset
+    -moz-box-shadow: inset 0 0px 0px rgba(0,0,0,.2)
+    -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .2)
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, .2)
+.ui-page
+    background-image: url('aprint.jpg')
+img
+    max-height: 100%
+    max-width: 100%
+.b-page
+    width: 50%
+//.b-wrap-right
+/*------MIXIN------*/
+//@mixin titleGeneric($color,$bold,$shadowColor)
+//    width: 100%
+//    margin: 0
+//    padding: 2% 0
+//    text-align: center
+//    text-shadow: 1px 1px $shadowColor
+//    color: $color
+//    font:
+//        family: arial
+//        weight: $bold
+//.paymentView .error
+//    position: relative
+//
+//@mixin textGeneric($color,$lineHeight,$fontFamily,$fontSize,$fontWeight)
+//    color: $color
+//    line-height: $lineHeight
+//    font:
+//        family: $fontFamily
+//        weight: $fontWeight
+//        size: $fontSize
+///*------EXTEND ------*/
+//.bkgTitleGeneric
+//    background-image: -webkit-gradient(linear,0 bottom, 0 top, from(#2d363f), to(#647584))
+//    border-bottom: 1px solid #888783
+///*------ GENERIC ------*/
+//.ui-mobile-viewport
+//    background-image: url('bkgGenericBig.png') //to get the bacground displayed at full screen (no white spaces)
+//body.ui-mobile-viewport, div.ui-mobile-viewport
+//    overflow-x: auto !important
+//.error
+//    background-image: -webkit-gradient(linear,0 bottom, 0 top, from(#8b0202), to(#bc0404))
+//    border-bottom: 1px solid #b96767
+//    @include titleGeneric(#ffffff,bold,#624545)
+//    position: absolute
+//    display: none
+//    z-index: 100
+//.btnGenericOrange
+//    border-lefgt: 2px solid #ff9741
+//    border-right: 2px solid #ff9741
+//    border-top: 1px solid #f8b157
+//    border-bottom: 1px solid #ff7316
+//    background: #9D5328
+//    color: #fff
+//    text-shadow: 0 1px 0 #a14900
+//    background-image: -webkit-gradient(linear,left top,left bottom,from(#ffa116),to(#ff6700))
+//    background-image: linear-gradient(#ffa116,#ff6700)
+//    font-family: arial
+//    .ui-btn-inner
+//        padding: .2em 25px
+//        font-size: 2.2em
+//.btnGenericOrange:active
+//    background-image: -webkit-gradient(linear,left top,left bottom,from(#ff6700),to(#ffa116))!important
+//.btnGenericBlue
+//    border: 1px solid #111b35
+//    background: #5b667e
+//    color: #fff
+//    text-shadow: 1px 0 0 #121419
+//    background: -webkit-gradient(linear, center top, center bottom, from(#d3d8e5), color-stop(50%, #687796), to(#8c9bba))
+//    font-family: arial
+//    .ui-btn-inner
+//        padding: .7em 25px
+//        font-size: 1.3em
+//.btnGenericBlue:active
+//    background: -webkit-gradient(linear, center top, center bottom, from(#8c9bba), color-stop(50%, #687796), to(#d3d8e5))
+//.btnGenericGrey
+//    border: 1px solid #111b35
+//    background: #5b667e
+//    color: #fff
+//    text-shadow: 1px 0 0 #121419
+//    background: -webkit-gradient(linear, center top, center bottom, from(#a4a6a9), color-stop(50%, #5d5f64), to(#66696d))
+//    font-family: arial
+//    .ui-btn-inner
+//        padding: .7em 25px
+//        font-size: 1.3em
+//.btnGenericGrey:active
+//    background: -webkit-gradient(linear, center top, center bottom, from(#66696d), color-stop(50%, #687796), to(#a4a6a9))
+//
+//.ui-btn-up-btnCreate
+//    border: 1px solid #617d93
+//    background: #94b8d2
+//    font-weight: #b5cbd6
+//    color: #2a3843
+//    text-shadow: 0 1px 0 #b5cbd6
+//    background-image: -webkit-gradient(linear,left top,left bottom,from(#adc8e0),to(#92b4cf))
+//    background-image: linear-gradient(#adc8e0,#92b4cf)
+//.ui-btn-corner-all
+//    -webkit-border-radius: 0.7em
+//    border-radius: 0.7em
+//.left
+//    float: left
+//.right
+//    float: right
+//.inputGroup
+//    input
+//        //-webkit-border-radius: 0 !important
+//        border-radius: 0 !important
+//        margin: 0px
+//        padding: 0.6em
+//        //background-color: #f7f7f7
+//        font-size: 1.3em
+//        opacity: 1 !important
+//    input:first-child
+//        //-webkit-border-top-left-radius: .6em !important
+//        border-top-left-radius: .6em !important
+//        //-webkit-border-top-right-radius: .6em !important
+//        border-top-right-radius: .6em !important
+//    input:last-child
+//        //-webkit-border-bottom-left-radius: .6em !important
+//        border-bottom-left-radius: .6em !important
+//        //-webkit-border-bottom-right-radius: .6em /*{global-radii-blocks}*/!important
+//        border-bottom-right-radius: .6em  !important
+//.inputGroup.stateAndZip
+//    input
+//        //-webkit-border-radius: 0 !important
+//        border-radius: 0 !important
+//        margin: 0px
+//        //padding: 0.6em
+//        //background-color: #f7f7f7
+//        font-size: 1.3em
+//        width: 50%
+//        float: left
+//    input:first-child
+//        //-webkit-bottom-top-right-radius: .6em !important
+//        border-bottom-left-radius: .6em !important
+//    input:last-child
+//        //-webkit-border-bottom-left-radius: .6em !important
+//        border-bottom-right-radius: .6em !important
+//.bLogin
+//    @extend .btnGenericOrange
+//    margin: 6% 0 4% 0
+//.bPayRent
+//    @extend .btnGenericOrange
+//    margin: 0% 2% 0% 2%
+//.next, .bDone
+//    @extend .btnGenericOrange
+//    margin: 10% 0 4% 0
+//.bkgHeaderGeneric
+//    @extend .bkgTitleGeneric
+//    @include titleGeneric(#6A7689,bold,#57677b)
+//    padding: 0
+//    h2
+//        width: 100%
+//        margin: 0
+//        padding: 4% 0
+//    img
+//        position: absolute
+//        padding: 3% 0 0 5%
+///*------ VIEW LOGIN------*/
+//#login
+//    width: 100%
+//    min-height: 100%
+//    background-color: #1a1e21
+//    background-image: url('bkgGenericBig.png')
+//    background-size: 640px 960px
+//    background-repeat: repeat
+//    //overflow: auto
+//    //padding: 0px
+//    .ui-content
+//        width: 95%
+//        margin: 0 auto
+//        text-align: center
+//    .ui-bar-top, .ui-bar-footer
+//        text-align: center
+//    img.logoLogin
+//        width: 95%
+//        padding: 6% 0
+//    .bNewAcount
+//        background: url('createNormal.png')
+//        background-repeat: no-repeat
+//        background-size: contain
+//        margin: 7% auto 11% auto
+//        padding: 6%
+//        width: 45%
+//        //border-bottom: 1px solid #cdd6dc
+//        //font-weight: bold
+//        //color: #222221
+//        //text-shadow: 0 1px 0 #8098b5
+//        //font-family: verdana
+//        //.ui-btn-inner
+//          //  font-size: .9em
+//           // padding: .8em 20px
+//    .bNewAcount:active
+//        background: url('createNormalActivado.png')
+//        background-repeat: no-repeat
+//        background-size: contain
+//        margin: 7% auto 11% auto
+//        padding: 6%
+//        width: 45%
+//        //border-bottom: 1px solid #cdd6dc
+//        //background: none
+//        //font-weight: bold
+//        //color: #222221
+//        //text-shadow: 0 1px 0 #8098b5
+//        //font-family: verdana
+//        //margin-bottom: 10%
+//        //.ui-btn-inner
+//            //font-size: .9em
+//            //padding: .8em 20px
+//    .footerLogin a
+//        color: #ffffff
+//        font-size: 0.8em
+//        text-decoration: none
+//        font-weight: normal
+//    .helpMarg
+//        margin: 0 10%
+//
+///*------ VIEW PAYMENT------*/
+//@mixin paymentTextHeader($numSize,$bold)
+//    width: 82%
+//    color: #fbfbfb
+//    margin: 0 0 0 0
+//    line-height: 1.1em
+//    text-align: left
+//    font:
+//        size: $numSize
+//        family: arial
+//        weight: $bold
+//.bkgHeaderPayment
+//    border-bottom: 1px solid #414348
+//    text-shadow: 0px 1px rgba(0, 0, 0, 1)
+//    padding: 1% 0 1% 3%
+//    // Fallback
+//    background: url('bkg-transparent-payment-top.png') repeat, url('bkg-payment.png') repeat
+//    background-size: 100% 100%, 640px 115px
+//    // Ideal
+//    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.1) 0%,rgba(0, 0, 0, 0.6) 90%),-webkit-linear-gradient(left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7))
+//    p.name
+//        @include  paymentTextHeader(2em,bold)
+//    p.nameApartments
+//        @include  paymentTextHeader(1em,bold)
+//    p.info
+//        @include  paymentTextHeader(1em,normal)
+//.bkgTitlePayment
+//    @extend .bkgTitleGeneric
+//    @include titleGeneric(#7B91A9,bold,#5f7487)
+//.contInfoPayment
+//    background-color: #f4f1ea
+//    padding: 2% 2% 0% 2%
+//    .borderTop
+//        border-top: 1px solid #94938f
+//        margin: 2% 0 0 0
+//    .rowInfoPayment
+//        width: 100%
+//        @mixin descriptionText
+//            padding-top: 4%
+//            float: left
+//            @include textGeneric(#363636,1.2em,arial,1.2em,normal)
+//
+//        p.descriptionText
+//            @include descriptionText
+//            width: 30%
+//
+//        div.description
+//            background-color: #d4dae6
+//            border: 1px solid #c4c8d0
+//            float: right
+//            padding: 2%
+//            width: 65%
+//            p.textBank
+//                margin: 0 4%
+//                float: left
+//                width: 60%
+//                @include textGeneric(#363636,1em,arial,1em,normal)
+//            p.textCard
+//                margin: 0 4%
+//                float: left
+//                width: 50%
+//                @include textGeneric(#363636,1.3em,arial,1.3em,normal)
+//        p.descriptionText2
+//            @include descriptionText
+//            width: 65%
+//        p.descriptionText3
+//            @include descriptionText
+//            padding-top: 2%
+//            width: 65%
+//
+//        div.description2
+//            float: right
+//            width: 30%
+//            input
+//                -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .2)
+//                border: 1px solid #f9bb58
+//        div.description3
+//            float: right
+//            padding: 1%
+//            width: 30%
+//            text-align: right
+//            line-height: 2.3em
+//            span
+//                @include textGeneric(#363636,1.3em,arial,1.3em,bold)
+//
+//        p.descriptionTextTotal
+//            padding-top: 2%
+//            width: 65%
+//            float: left
+//            @include textGeneric(#363636,1.3em,arial,1.3em,bold)
+//        div.descriptionTotal
+//            float: right
+//            padding: 2%
+//            width: 30%
+//            text-align: right
+//            span
+//                @include textGeneric(#363636,1em,arial,1.6em,bold)
+//.bkgFooterPayment
+//    padding: 2%
+//    // Fallback
+//    background: url('bkg-transparent-payment-top.png') repeat, url('bkg-payment.png') repeat
+//    background-size: 100% 100%, 640px 115px
+//    // Ideal
+//    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.1) 0%,rgba(0, 0, 0, 0.6) 90%),-webkit-linear-gradient(left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7))
+//.bkgSubTitlePayment
+//    @include textGeneric(#ffffff,1.1em,arial,1.1em,bold)
+//    background-image: -webkit-gradient(linear,0 bottom, 0 top, from(#faa623), to(#e76c25))
+//    border-bottom: 1px solid #888783
+//    text-shadow: 1px 1px #666664
+//    text-align: center
+//    padding: 2% 0
+///*--- POOP UP ACCOUNT  ---*/
+//.accountsContainer
+//    .accounts li
+//        padding: 2% !important
+//        min-height: initial
+//        img
+//            position: relative !important
+//            width: 15%
+//        img.cardvisa
+//            padding-top: 1%
+//        img.carddiscover
+//            padding-top: 2%
+//        p.textBank
+//            float: left
+//            font-size: 1.1em
+//            overflow: visible
+//            margin: 0 !important
+//            padding: 0 0 0 2% !important
+//        p.textCard
+//            @extend .textBank
+//            padding: 0 0 0 18% !important
+//.account
+//    img.row
+//        width: 10%
+//    img.cardvisa
+//        width: 30%
+//    img.cardmastercard
+//        width: 20%
+//    img.carddiscover
+//        width: 31%
+//        padding-top: 3%
+//    img.bank
+//        width: 17%
+//.description.account
+//    text-align: right
+//.description.account:active
+//    background-color: orange !important
+//.visa, .discover, .mastercard
+//    padding: 3px 0 3px 35px
+//    font-size: 16px
+//    text-align: right
+//.paymentAmount
+//    text-align: right
+//.popup
+//    text-align: center
+//    .popupContent
+//        padding: 15px
+//    .infoMain
+//        font-size: 20px
+//    .info
+//        font-size: 17px
+//    input
+//        text-align: center
+///*------ VIEW FIND------*/
+//.find
+//    width: 100%
+//    min-height: 100%
+//    background-color: #1a1e21
+//    background-image: url('building.png') , url('')
+//    background-position: center 80%, left top
+//    background-size: 50%,640px 960px
+//    background-repeat: no-repeat ,repeat
+//    .bkgTitleFind
+//    .bkgTitleFind
+//        background-image: -webkit-gradient(linear,0 bottom, 0 top, from(#4e5e75), to(#848f9e))
+//        border-bottom: 1px solid #212328
+//        border-top: 1px solid #b6bec8
+//        padding: 2%
+//        a
+//            border: 0
+//            background: none
+//            background-image: initial
+//            -webkit-box-shadow: initial
+//            box-shadow: initial
+//        .ui-input-search
+//            width: 100%
+//            margin: 0
+//            border-radius: 4em
+//            box-shadow: inset 0px 3px 3px gray
+//            border: 1px solid #3E495F
+//            input
+//                padding: 0.3em 0
+//    .result
+//        li
+//            padding: 2%
+//            margin: 0
+//            background-color: #FFFFFF
+//            line-height: 3em
+//            min-height: 3em
+//            p.findName
+//                font-size: 1.4em
+//                font-weight: bold
+//                color: #000000
+//                margin: 0
+//                padding: 0
+//            img.findRow
+//                position: relative
+//                width: 3%
+//                padding-top: 0.7em
+//                margin-right: 2%
+//.accountIDPopup
+//    .forNormal
+//        display: block
+//    .forError
+//        display: none
+//.accountIDPopup.popError
+//    .forNormal
+//        display: none
+//    .forError
+//        display: block
+//.ui-select
+//    margin: 10%
+//    a
+//        border: 0 none
+//        background-image: none
+//        -webkit-appearance: initial
+//    span.ui-btn-inner
+//        background-image: -webkit-gradient(linear,0 bottom, 0 top, from(#c0cfeb), to(#dde7f6))
+//        border: 1px solid #7b85c1
+//        font-size: 1.6em
+//        color: black
+//        font-weight: normal
+//        padding: .1em 11px .1em
+//    .ui-btn-corner-all
+//        -webkit-border-radius: 2em
+//        border-radius: 2em
+///*------ NAME AND ADDRESS------*/
+//.nameAndAddress
+//    .ui-content
+//        margin: 0 auto
+//        width: 95%
+//    .groupName
+//        margin: 10% 0 5% 0
+//    input.apt:enabled
+//        border-top: 1px solid orange
+//        border-bottom: 1px solid orange
+//        position: relative
+//        margin-top: -1px
+//        margin-bottom: -1px
+//        box-shadow: none !important
+//    input.apt:enabled::-webkit-input-placeholder
+//        color: orange
+///*------ USERNAME AND PASSWORD------*/
+//.usernameAndPassword
+//    .ui-content
+//        margin: 3% auto 0% auto
+//        width: 95%
+//    .inputGroup
+//        margin-top: 7%
+///*------ ADD ACCOUNT ------*/
+//.addAccountView
+//    .fontDescription
+//        color: #ffffff
+//        font-family: arial
+//    .tabPage
+//        background-repeat: no-repeat !important
+//        background-size: contain !important
+//        margin: 0 !important
+//        padding: 9%
+//        border: 0 !important
+//        box-shadow: initial !important
+//    .tabCreditCard.ui-btn-active
+//        background: url('btn-paymentCard-on.png')
+//    .tabCreditCard
+//        background: url('btn-paymentCard-off.png')
+//    .tabBankAccount.ui-btn-active
+//        background: url('btn-banckAccount-on.png')
+//    .tabBankAccount
+//        background: url('btn-banckAccount-off.png')
+//    .ui-btn-inner
+//        border: 0 none
+//    .creditCard,.bankAccount
+//        width: 90%
+//        margin: 0 auto 0 auto
+//        .visa, .discover, .mastercard
+//            padding: 0
+//            font-size: inherit !important
+//        .cardType
+//            margin: 3% 0
+//            .logo
+//                background:
+//                    repeat: no-repeat !important
+//                    size: contain !important
+//                    position: center center !important
+//                height: 2.5em
+//                width: 34%
+//                float: left
+//            .visaLogo
+//                background: url('logo-visa-off.png')
+//                background-position-x: left !important
+//                width: 24%
+//            .mastercardLogo
+//                background: url('logo-master-off.png')
+//                width: 42%
+//            .discoverLogo
+//                background: url('logo-discover-off.png')
+//                background-position-x: right !important
+//        .cardType.mastercard .mastercardLogo
+//            background: url('mastercard.png')
+//        .cardType.discover .discoverLogo
+//            background: url('discover.png')
+//        .cardType.visa .visaLogo
+//            background: url('visa.png')
+//        .expDate
+//            @include textGeneric(#afb9bf,4.1em,arial,1.1em,bold)
+//            text-shadow: -2px -2px #5f676f
+//            input
+//                width: 80%
+//                text-align: center
+//                float: right
+//        .fieldLabel
+//            @include textGeneric(#afb9bf,1.1em,arial,1.1em,bold)
+//            text-shadow: -2px -2px #5f676f
+//            margin: 0 0 0.7em 0
+//        .accountTypeField .fieldLabel
+//            line-height: 57px
+//        .text
+//            @include textGeneric(#ffffff,1.1em,arial,1.1em,bold)
+//            padding-top: 1.1em
+//            text-shadow: 0px 2px #1f2327
+//        .accountTypeField
+//            .ui-block-a
+//                width: 40%!important
+//            .ui-block-b
+//                width: 60%!important
+//        .userInfo
+//            .ui-block-a
+//                width: 30%!important
+//            .ui-block-b
+//                width: 70%!important
+//            a
+//                @include textGeneric(#313235,1.1em,arial,1.1em,bold)
+//                text-decoration: underline
+//                text-shadow: 0px 2px #7a8898
+//                margin-top: 1em
+//            .margeBottom
+//                margin-bottom: 1.1em
+//
+//    .error
+//        z-index: 10000
+//    .labeledInputs
+//        margin-top: 15px
+//        margin-bottom: 15px
+//    .labeledInputs.cardHolderName
+//        .label
+//            max-width: 170px
+//        input
+//            padding-left: 170px !important
+//    .ui-popup-screen
+//        opacity: 0.9
+//        background: rgba(0,0,0,1)
+//    .ui-overlay-shadow
+//        box-shadow: none
+//
+////Big TODO check for this styles
+//.labeledInputs
+//    position: relative
+//    width: 100%
+//    input
+//        padding-left: 100px // !important
+//        text-align: left
+//    .zip
+//        padding-left: 50px
+//    .labels
+//        pointer-events: none
+//        position: absolute
+//        top: 0px
+//        left: 0px
+//        width: 100%
+//        .label
+//            border: none !important
+//            background: transparent !important
+//            text-align: left
+//            max-width: 100px
+//            overflow: hidden
+//            box-sizing: border-box
+//            color: #333
+//            font-size: 17px
+//            line-height: 23px
+//            font-weight: bold
+//            padding: 11.133333206176758px //TODO Lo copie del chrome, hay que ver de donde salen
+//            //padding-left: 10px
+//            //padding-bottom: 10.133333206176758px
+//            //padding-right: 10.133333206176758px
+//            //padding-top: 10.133333206176758px
+//
+//li:active
+//    background-color: orange
+//
+//input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
+//    -webkit-appearance: none
+//    margin: 0
+//
+////.ui-content
+////    padding:
+////        left: 10px
+////        right: 10px

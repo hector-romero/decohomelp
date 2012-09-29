@@ -1,0 +1,12 @@
+<div data-role="header" data-theme="top">
+    <%-  @header %>
+</div>
+
+<div data-role="content">
+  <%- @content %>
+</div>
+
+<div data-role="footer" data-theme="footer">
+  <%- @footer %>
+</div>
+
