@@ -14,7 +14,9 @@ ajaxSpinner = ->
 
 App.onLoad = ->
   ajaxSpinner()
-  $('#mybook').booklet({overlays: true,arrows: true,closed: true,hovers:true,name: 'Catalogo',autoCenter:true,width: '55%',height: '80%',hash: true})
+  #$("body").css()
+  $('.ui-content').css("height","#{$(window).height() - 90}")
+  $('#mybook').booklet({overlays: true,arrows: true,closed: true,hovers:true,name: 'Catalogo',autoCenter:true,width: '55%',height: '100%',hash: true})
   $('#mybook').show()
 
 $(document).bind "mobileinit", ->

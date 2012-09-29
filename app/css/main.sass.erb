@@ -5,7 +5,7 @@
 /*------ VIEW GENERIC AND RESET ------*/
 @font-face
     font-family: "decohomefont"
-    src: url("jandles.ttf") format("truetype")
+    src: url('<%= asset_data_uri("jandles.ttf") %>') format("truetype")
 
 .logo
     font-family: "decohomefont" !important //, Helvetica, Arial, sans-serif
@@ -16,21 +16,16 @@
     bottom: 0px
     text-align: center
     width: 100%
-h1
-    font-size: 1.8em
-h2
-    font-size: 1.2em
-p
-    margin: 0
-    padding: 0
-
+*
+    scroll: hidden
 
 .ui-content
     padding: 0
+    overflow-y: hidden
+    overflow-x: none
 .ui-page
-    //background-image: url('http://www.scenicreflections.com/files/Grungy_and_Rustic_Wallpaper_mf54.jpg')
     background:
-        image: url('http://us.123rf.com/400wm/400/400/rufous/rufous1111/rufous111100055/11106662-hermoso-interior-fondos-de-escritorio-de-epoca-suelos-de-madera-marcos-de-oro-adornado.jpg')
+        image: url('background.jpg')
         size: 100% 100%
         repeat: no-repeat
     max-height: 100%
@@ -39,8 +34,9 @@ img
     max-height: 100%
     width: 100%
 
-//.b-page
-//    width: 50%
+.b-page
+    box-sizing: border-box
+    height: 100% !important
 .b-wrap
     //background-color: transparent !important
     height: auto !important
@@ -62,15 +58,36 @@ img
     left: auto !important
     right: 0
 #mybook
-    margin-top: 2% !important
+    margin-top: 1% !important
 
 .ui-header
     text-align: center
-    font-size: 20px
-    font-family: thimes
     background: transparent
     border: none
+.title
+    text-shadow: -2px -2px rgb(200,200,200)
+    font-size: 20px
+    font-family: thimes
     color: black
+    font-style: italic
+.ui-footer
+    text-align: right
+    background: transparent
+    border-color: transparent
+    *
+        margin-right: 20px
+.fcLogo
+    height: 40px
+    width: 40px
+.fcLink, .fcLink *
+    background-size: 100% 100%
+    background-position: center center
+    background: transparent
+    border: none !important
+    box-shadow: none !important
+    webkit-box-shadow: none !important
+
+
 /*------MIXIN------*/
 //@mixin titleGeneric($color,$bold,$shadowColor)
 //    width: 100%

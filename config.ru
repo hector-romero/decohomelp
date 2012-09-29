@@ -1,3 +1,6 @@
+require 'coffee_script'
+require 'sass'
+
 map '/' do
   require './app'
   run Sinatra::Application
