@@ -119,7 +119,7 @@ App.onLoad = ->
   updateHeight undefined,false
   $(window).bind 'resize', updateHeight
 
-  $('#mybook').booklet({overlays: true,arrows: true,closed: true,hovers:true,name: 'Catálogo',autoCenter:true,width: '75%',height: '97%',hash: true})
+  $('#mybook').booklet({overlays: true,arrows: true,closed: true,hovers:true,autoCenter:true,width: '75%',height: '97%',hash: true})
   $('#mybook').show()
   App.view.renderHashPage()
   $(window).bind "hashchange", -> App.view.renderHashPage()
