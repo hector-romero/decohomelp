@@ -13,7 +13,10 @@ map '/assets' do
   env.append_path 'app/js'
   env.append_path 'app/css'
   env.append_path 'app/resources'
-  env.compress true
+  #Mime::Type.register "font", :ttf, [], %w(.ttf)
+  Rack::Mime::MIME_TYPES['.ttf'] = 'application/x-font-ttf'
+  Rack::Mime::MIME_TYPES['.cur'] = 'image/png'
+  #WEBrick::HTTPUtils::DefaultMimeTypes['ttf'] = 'font'
 
 
   # Compress JavaScript and shorten local variable names (:munge option)

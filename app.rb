@@ -11,7 +11,7 @@ disable :protection
 #  200
 #end
 before do
-  headers 'Content-Language' => 'es-ar'
+  headers 'Content-Language' => 'es'
 end
 
 get '/' do
