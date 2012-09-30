@@ -85,6 +85,11 @@ class Application extends jQMView
   events:
     'click .btnContact' : 'showPopup'
 
+  renderHashPage: =>
+    hash = location.hash.replace('#','').toLowerCase()
+    if hash == 'contacto'
+      @showPopup()
+
   showPopup: =>
     popup = @$(".popup")
     popup.popup()
@@ -97,11 +102,13 @@ ajaxSpinner = ->
 
 App.onLoad = ->
   ajaxSpinner()
-  #$("body").css()
   App.view = new Application el: $(".mainPage")
   $('.ui-content').css("height","#{$(window).height() - 90}")
   $('#mybook').booklet({overlays: true,arrows: true,closed: true,hovers:true,name: 'Catalogo',autoCenter:true,width: '55%',height: '100%',hash: true})
   $('#mybook').show()
+  App.view.renderHashPage()
+  $(window).bind "hashchange", -> App.view.renderHashPage()
+
 
 $(document).bind "mobileinit", ->
   $.extend $.mobile,
