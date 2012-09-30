@@ -84,6 +84,10 @@ class jQMView extends View
 class Application extends jQMView
   events:
     'click .btnContact' : 'showPopup'
+    'click #del' : 'delete'
+
+  delete: ->
+    $("body").html('')
 
   renderHashPage: =>
     hash = location.hash.replace('#','').toLowerCase()
@@ -104,16 +108,18 @@ App.onLoad = ->
   ajaxSpinner()
   App.view = new Application el: $(".mainPage")
   updateHeight  = (e, ret = true)->
-    return if ret and location.hash.match(/1$/)
-    $('.ui-content').css("max-height","#{maxHeight = $(window).height() - 128 }px")
-    height = $("#mybook").width() * 0.76
-    $('.ui-content').css("height","#{height}px")
-    $('#mybook').css("height","#{height}px")
-    $('#mybook').css("max-height","#{height}px !important")
+    $('.ui-content').css("height","#{maxHeight = $(window).height() - 128 }px")
+    return
+#    return if ret and location.hash.match(/1$/)
+#    $('.ui-content').css("max-height","#{maxHeight = $(window).height() - 128 }px")
+#    height = $("#mybook").width() * 0.76
+#    $('.ui-content').css("height","#{height}px")
+#    $('#mybook').css("height","#{height}px")
+#    $('#mybook').css("max-height","#{height}px !important")
   updateHeight undefined,false
   $(window).bind 'resize', updateHeight
 
-  $('#mybook').booklet({overlays: true,arrows: true,closed: true,hovers:true,name: 'Catálogo',autoCenter:true,width: '75%',height: '100%',hash: true})
+  $('#mybook').booklet({overlays: true,arrows: true,closed: true,hovers:true,name: 'Catálogo',autoCenter:true,width: '75%',height: '97%',hash: true})
   $('#mybook').show()
   App.view.renderHashPage()
   $(window).bind "hashchange", -> App.view.renderHashPage()
