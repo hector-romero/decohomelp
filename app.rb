@@ -6,12 +6,16 @@ require 'rack/reverse_proxy'
 
 #Disable protection to get work reverse_proxy
 disable :protection
-
-options '/*' do
-  200
+#
+#options '/*' do
+#  200
+#end
+before do
+  headers 'Content-Language' => 'es-ar'
 end
 
 get '/' do
+
   erb :index
 end
 

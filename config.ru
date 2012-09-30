@@ -13,10 +13,11 @@ map '/assets' do
   env.append_path 'app/js'
   env.append_path 'app/css'
   env.append_path 'app/resources'
+  env.compress true
+
 
   # Compress JavaScript and shorten local variable names (:munge option)
   env.js_compressor = YUI::JavaScriptCompressor.new :munge => true #, :line_break => 80
-
   # Compress CSS.
   # Note: This is a horrible monkey-patching. Ass YUI compressor is not working
   # with our CSS, we use the :style option of Sass. Unfortunately, it can be
