@@ -103,8 +103,16 @@ ajaxSpinner = ->
 App.onLoad = ->
   ajaxSpinner()
   App.view = new Application el: $(".mainPage")
-  $('.ui-content').css("height","#{$(window).height() - 90}")
-  $('#mybook').booklet({overlays: true,arrows: true,closed: true,hovers:true,name: 'Catalogo',autoCenter:true,width: '55%',height: '100%',hash: true})
+  updateHeight  = ->
+    $('.ui-content').css("max-height","#{maxHeight = $(window).height() - 128 }px")
+    height = $("#mybook").width() * 0.76
+    $('.ui-content').css("height","#{height}px")
+    $('#mybook').css("height","#{height}px")
+    $('#mybook').css("max-height","#{height}px !important")
+  updateHeight()
+  $(window).bind 'resize', updateHeight
+
+  $('#mybook').booklet({overlays: true,arrows: true,closed: true,hovers:true,name: 'Catálogo',autoCenter:true,width: '75%',height: '100%',hash: true})
   $('#mybook').show()
   App.view.renderHashPage()
   $(window).bind "hashchange", -> App.view.renderHashPage()

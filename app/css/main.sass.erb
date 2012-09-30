@@ -10,8 +10,18 @@
     font-family: "ravie"
     src: url('<%= asset_data_uri("jandles.ttf") %>') format("truetype")
 
-//*
-//    font-family: "ravie" !important
+.ui-content
+    max-width: 970px
+    margin: auto
+.b-wrap
+    position: relative !important
+    float: left !important
+    left: auto !important
+.b-wrap.b-wrap-left, .b-left
+    right: 0px !important
+.b-wrap.b-wrap-right, .b-right
+    float: right !important
+    left: 0px !important
 .logo
     font-family: "decohomefont" !important //, Helvetica, Arial, sans-serif
     font-size: 47px
@@ -24,10 +34,20 @@
 *
     scroll: hidden
 
+#mybook
+    max-width: 738px !important
+    max-height: 100%
+    *
+        max-height: 100%
+    .b-page, .b-page .b-wrap
+        max-width: 369px !important //370px !important
 .ui-content
     padding: 0
     overflow-y: hidden
     overflow-x: none
+    padding-top: 1%
+    box-sizing: border-box
+    position: relative
 .ui-page
     background:
         image: url('background.jpg')
@@ -42,6 +62,7 @@ img
 .b-page
     box-sizing: border-box
     height: 100% !important
+    max-width: 50%
 .b-wrap
     //background-color: transparent !important
     height: auto !important
@@ -50,20 +71,29 @@ img
     background-color: transparent !important
     font-weight: bold
     font-size: 12px
+.b-arrow
+    width: 12% !important
+.b-arrow.b-arrow-next
+    right: -13% !important
+.b-arrow.b-arrow-prev
+    left: -13% !important
 .b-arrow div
-    width: 74px !important
+    width: 100% !important
     background-size: 100% auto !important
     background-position: center center
-//.b-arrow-prev
-//    left: -47%
+    height: 100% !important
+    top: 0 !important
+.b-arrow-next
+    float: right !important
+.b-arrow-prev
+    float: left !important
+
 .b-arrow-next div
-    background-position: center left !important
+    background-position: center right !important
 .b-arrow-prev div
     background-position: center right !important
     left: auto !important
     right: 0
-#mybook
-    margin-top: 1% !important
 
 .ui-header
     text-align: center
