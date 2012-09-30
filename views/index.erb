@@ -19,7 +19,7 @@
 
 
   <body onload='onLoad()'>
-  <div data-role="page">
+  <div data-role="page" class="mainPage">
       <div data-role="header"><span class="logo">Deco Home LP</span><br/><span class="title">Catalogo Oficial</span></div>
       <div data-role="content">
         <div id="mybook" style="display:none;margin-top:2%">
@@ -54,8 +54,34 @@
               <img src="assets/catalogo/10.png">
           </div>
       </div></div>
-      <div data-role="footer" class="footer"><a data-rel="external" class="fcLink" href="http://www.facebook.com/decohomelp" alt="Nuestro Facebook">
-          <img class="fcLogo"src="assets/facebook-logo.png"></a>
+      <div data-role="footer" class="footer">
+          <a data-rel="external" class="fcLink" href="http://www.facebook.com/decohomelp" alt="Nuestro Facebook">
+              <img class="fcLogo"src="assets/facebook-logo.png">
+          </a>
+          <a class="btnContact" href="javascript:void(0)">
+              <img class="fcLogo"src="assets/contact.png">
+          </a>
+      </div>
+      <div class="popup" data-role="popup" data-theme="e" data-overlay-theme="a">
+          <div class="popupContent">
+              <p class="infoMain">
+                  Contacto:
+              </p>
+              <p class="info">
+                  Lorena Ponce
+              </p>
+              <p class="info">
+                  Tel: 15-57953602
+              </p><p class="info">
+                  E-mail: decohomelp@hotmail.com
+              </p><p class="info facebook">
+              Facebook: <a data-rel="external" class="fcLink noUnderline" href="http://www.facebook.com/decohomelp" alt="Nuestro Facebook">
+                        <img class="fcLogo"src="assets/facebook-logo.png">&nbsp;<span class="logo">Deco Home LP</span></a>
+              </p>
+
+              <a data-role="button" class="cancel" data-rel='back' data-theme="a">Cerrar</a>
+
+          </div>
       </div>
   </div>
 

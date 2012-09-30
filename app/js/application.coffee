@@ -2,10 +2,93 @@
 #= require "vendor/jquery-ui.min"
 #= require "vendor/jquery.easing.1.3"
 #= require "vendor/jquery.booklet.1.4.0"
-
+#= require "view"
 #= require "vendor/underscore"
 
 App = {}
+class jQMView extends View
+  _default_events =
+#    'popupbeforeposition .popup' : 'resizePopUp'
+    'click .error'               : 'clearError'
+    'click .back'                : 'goBack'
+    'keypress input.numeric'     : 'filterNumericKeys'
+    'input input.checkLength'     : 'maxLengthCheck'
+
+
+  maxLengthCheck: (e)->
+    object = e.target
+    if (object.value.length > object.maxLength)
+      object.value = object.value.slice(0, object.maxLength)
+
+  events: {}
+
+  options:
+    'data-role': 'page'
+    'data-theme': 'on'
+
+  filterNumericKeys: (e) ->
+    unless Tools.isNumericKey e.keyCode
+      e.returnValue = false
+      e.preventDefault()
+
+  addError: ->
+    errorHtml = JST['templates/error_message']()
+    if @$(".pageTitle")[0]
+      @$(".pageTitle:first").after errorHtml
+    else if @$(".ui-header")[0]
+      @$(".ui-header:first").after errorHtml
+    else
+      @$el.prepend errorHtml
+
+  error: (errorMessage) ->
+    error = @$(".error")
+    unless @$(".error")[0]
+      @addError()
+      error = @$(".error")
+    error.html errorMessage
+    error.slideDown()
+    null
+
+  clearError: =>
+    error = @$(".error")
+    error.slideUp()
+    error.html ''
+
+  headerTemplate: (title) ->
+    JST['templates/header'] title:title
+
+  template: (header,content,footer) ->
+    params =
+      header: header
+      content: content
+      footer: footer
+    JST['templates/screen'] params
+
+  goBack: =>
+    Views.navigator.navigate @options.prevPage, reverse: true
+
+  resizePopUp:(e) ->
+    $(e.target).css("width",Math.floor($(window).width() * 0.9) + 'px')
+
+  initialize: ->
+    @options['data-url'] or= @id
+    @options.prevPage or= $(".ui-page-active")
+    @$el.attr "data-role", @options['data-role']
+    @$el.attr "data-url", @options['data-url']
+    @$el.attr "data-theme", @options['data-theme']
+    _.defaults @events, _default_events
+
+  render: ->
+    throw "Must override"
+
+class Application extends jQMView
+  events:
+    'click .btnContact' : 'showPopup'
+
+  showPopup: =>
+    popup = @$(".popup")
+    popup.popup()
+    popup.popup 'open'
 
 ajaxSpinner = ->
     spinner = $(".ui-loader")
@@ -15,6 +98,7 @@ ajaxSpinner = ->
 App.onLoad = ->
   ajaxSpinner()
   #$("body").css()
+  App.view = new Application el: $(".mainPage")
   $('.ui-content').css("height","#{$(window).height() - 90}")
   $('#mybook').booklet({overlays: true,arrows: true,closed: true,hovers:true,name: 'Catalogo',autoCenter:true,width: '55%',height: '100%',hash: true})
   $('#mybook').show()

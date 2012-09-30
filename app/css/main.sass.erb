@@ -74,19 +74,33 @@ img
     text-align: right
     background: transparent
     border-color: transparent
-    *
+    .ui-btn, .ui-btn *
+        //margin-right: 20px
+        //.fcLink, .fcLink *
+        background-size: 100% 100%
+        background-position: center center
+        background: transparent
+        border: none !important
+        box-shadow: none !important
+        webkit-box-shadow: none !important
+    .ui-btn:last-child
         margin-right: 20px
 .fcLogo
     height: 40px
     width: 40px
-.fcLink, .fcLink *
-    background-size: 100% 100%
-    background-position: center center
-    background: transparent
-    border: none !important
-    box-shadow: none !important
-    webkit-box-shadow: none !important
 
+.popup
+    .facebook
+        line-height: 30px
+    .logo
+        font-size: 20px
+        color: rgb(64,64,250)
+        color: inherit
+    .fcLogo
+        height: 30px
+        width: 30px
+a.noUnderline
+    text-decoration: none
 
 /*------MIXIN------*/
 //@mixin titleGeneric($color,$bold,$shadowColor)
@@ -449,16 +463,16 @@ img
 //    text-align: right
 //.paymentAmount
 //    text-align: right
-//.popup
-//    text-align: center
-//    .popupContent
-//        padding: 15px
-//    .infoMain
-//        font-size: 20px
-//    .info
-//        font-size: 17px
-//    input
-//        text-align: center
+.popup
+    text-align: center
+    .popupContent
+        padding: 15px
+    .infoMain
+        font-size: 20px
+    .info
+        font-size: 17px
+    input
+        text-align: center
 ///*------ VIEW FIND------*/
 //.find
 //    width: 100%
