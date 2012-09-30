@@ -16,7 +16,7 @@ get '/' do
 end
 
 get '/favicon.ico' do
-  redirect "/assets/favicon.png"
+  redirect "/assets/dhlogo.png"
 end
 
 #
