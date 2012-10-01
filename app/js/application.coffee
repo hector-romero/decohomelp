@@ -9,11 +9,14 @@ App = {}
 class jQMView extends View
   _default_events =
 #    'popupbeforeposition .popup' : 'resizePopUp'
+    'popupafterclose .popup'     : 'removeHash'
     'click .error'               : 'clearError'
     'click .back'                : 'goBack'
     'keypress input.numeric'     : 'filterNumericKeys'
-    'input input.checkLength'     : 'maxLengthCheck'
+    'input input.checkLength'    : 'maxLengthCheck'
 
+  removeHash: ->
+    location.hash = ''
 
   maxLengthCheck: (e)->
     object = e.target
@@ -83,8 +86,8 @@ class jQMView extends View
 
 class Application extends jQMView
   events:
-    'click .btnContact' : 'showPopupContact'
-    'click .btnFc' : 'showPopupFc'
+#    'click .btnContact' : 'showPopupContact'
+#    'click .btnFc' : 'showPopupFc'
     'click #del' : 'delete'
 
   delete: ->
@@ -95,17 +98,15 @@ class Application extends jQMView
     if hash == 'contacto'
       return @showPopupContact()
     if hash == 'facebook'
-      console.log "ESTO"
       return @showPopupFc()
 
 
   showPopupContact: =>
-    $(".contactPopup").popup().popup('open')
+    $(".contactPopup").popup().popup 'open'
 
   showPopupFc: =>
-    popup =  $(".fcPopup")
-    popup.popup()
-    popup.popup 'open'
+    $(".fcPopup").popup().popup 'open'
+
 
 
 ajaxSpinner = ->
@@ -128,7 +129,7 @@ App.onLoad = ->
   updateHeight undefined,false
   $(window).bind 'resize', updateHeight
 
-  $('#mybook').booklet({overlays: true,arrows: true,closed: true,hovers:true,autoCenter:true,width: '75%',height: '97%',hash: true})
+  $('#mybook').booklet({overlays: true,arrows: true,closed: true,hovers:true,autoCenter:true,width: '75%',height: '97%'})
   $('#mybook').show()
   App.view.renderHashPage()
   $(window).bind "hashchange", -> App.view.renderHashPage()
