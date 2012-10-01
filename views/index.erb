@@ -45,14 +45,17 @@
         </div>
       </div>
       <div data-role="footer" class="footer">
-          <a data-rel="external" class="fcLink" target="_blank" href="http://www.facebook.com/decohomelp" title="Nuestro Facebook">
+          <!--<a data-rel="external" class="fcLink btnContact" target="_blank" href="http://www.facebook.com/decohomelp" title="Nuestro Facebook">-->
+              <!--<img class="footerIcon"src="assets/facebook-logo.png">-->
+          <!--</a>-->
+          <a class="btnFc fcLink" href="#facebook" title="Nuestro Facebook" data-ajax="false">
               <img class="footerIcon"src="assets/facebook-logo.png">
           </a>
           <a class="btnContact" href="#contacto" title="Contacto" data-ajax="false">
               <img class="footerIcon"src="assets/contact.png">
           </a>
       </div>
-      <div class="popup" data-role="popup" data-theme="e" data-overlay-theme="a">
+      <div class="popup contactPopup" data-role="popup" data-theme="e" data-overlay-theme="a">
           <div class="popupContent">
               <p class="infoMain">
                   <img class="contactLogo"  src="assets/dhlogo.png"><br/>
@@ -74,6 +77,13 @@
           </div>
       </div>
   </div>
+  <div class="popup fcPopup" data-role="popup" data-theme="e" data-overlay-theme="a">
+    <div class="popupContent">
+        <iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fdecohomelp&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=true&amp;header=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:590px;" allowTransparency="true"></iframe>
+    </div>
+
+  </div>
+
 
   </body>
 </html>

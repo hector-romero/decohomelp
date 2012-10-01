@@ -83,7 +83,8 @@ class jQMView extends View
 
 class Application extends jQMView
   events:
-    'click .btnContact' : 'showPopup'
+    'click .btnContact' : 'showPopupContact'
+    'click .btnFc' : 'showPopupFc'
     'click #del' : 'delete'
 
   delete: ->
@@ -92,12 +93,20 @@ class Application extends jQMView
   renderHashPage: =>
     hash = location.hash.replace('#','').toLowerCase()
     if hash == 'contacto'
-      @showPopup()
+      return @showPopupContact()
+    if hash == 'facebook'
+      console.log "ESTO"
+      return @showPopupFc()
 
-  showPopup: =>
-    popup = @$(".popup")
+
+  showPopupContact: =>
+    $(".contactPopup").popup().popup('open')
+
+  showPopupFc: =>
+    popup =  $(".fcPopup")
     popup.popup()
     popup.popup 'open'
+
 
 ajaxSpinner = ->
     spinner = $(".ui-loader")
