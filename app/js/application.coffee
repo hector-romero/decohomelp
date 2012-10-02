@@ -128,7 +128,7 @@ App.onLoad = ->
   updateHeight undefined,false
 #  $(window).bind 'resize', updateHeight
 
-  $('#mybook').booklet({overlays: true,arrows: true,closed: true,hovers:true,autoCenter:true,width: '75%',height: '97%'})
+  $('#mybook').booklet({overlays: true,arrows: true,pageNumbers: false,closed: true,hovers:true,autoCenter:true,width: '75%',height: '97%'})
   $('#mybook').show()
   $('.fcFrame').html '<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fdecohomelp&amp;width=420&amp;height=558&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=true&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:420px; height:558px;" allowTransparency="true" style="width:100%;height:100%"></iframe>'
   App.view.renderHashPage()
