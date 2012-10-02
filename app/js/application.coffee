@@ -119,15 +119,14 @@ App.onLoad = ->
   App.view = new Application el: $(".mainPage")
   updateHeight  = (e, ret = true)->
     $('.ui-content').css("height","#{maxHeight = $(window).height() - 128 }px")
+    $('.ui-content').css("max-height","#{maxHeight = $(window).height() - 128 }px")
     return
-#    return if ret and location.hash.match(/1$/)
-#    $('.ui-content').css("max-height","#{maxHeight = $(window).height() - 128 }px")
 #    height = $("#mybook").width() * 0.76
 #    $('.ui-content').css("height","#{height}px")
 #    $('#mybook').css("height","#{height}px")
 #    $('#mybook').css("max-height","#{height}px !important")
   updateHeight undefined,false
-  $(window).bind 'resize', updateHeight
+#  $(window).bind 'resize', updateHeight
 
   $('#mybook').booklet({overlays: true,arrows: true,closed: true,hovers:true,autoCenter:true,width: '75%',height: '97%'})
   $('#mybook').show()
