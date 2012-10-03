@@ -50,9 +50,11 @@ img
     max-height: 100%
     width: 100%
 
+$arrowWidth: 50px
 .b-arrow
-    width: 12% !important
+    width: $arrowWidth !important
     div
+        //width: 30px !important
         width: 100% !important
         background-size: 100% auto !important
         background-position: center center
@@ -60,11 +62,11 @@ img
         top: 0 !important
         background-position: center center !important
 .b-arrow.b-arrow-next
-    right: -13% !important
+    right: - ($arrowWidth + $arrowWidth * 0.2) //-13% !important
     float: right !important
 
 .b-arrow.b-arrow-prev
-    left: -13% !important
+    left: - ($arrowWidth + $arrowWidth * 0.2) //13% !important
     float: left !important
     div
         //left: auto !important
