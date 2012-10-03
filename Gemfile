@@ -7,7 +7,7 @@ gem 'sass'
 gem 'coffee-script'
 gem 'eco'
 gem 'yui-compressor'
-gem 'rack-reverse-proxy'
+#gem 'rack-reverse-proxy'
 gem 'redcarpet' # For markdown processing.
-gem 'eventmachine', '=1.0.0.rc.4' #only this version works on windows (Figuly WTF!)
+gem 'eventmachine', '=1.0.0.rc.4' #only this version works on windows
 #gem 'win32-open3-19', :platforms => :mingw #gemm needed on window

@@ -117,20 +117,37 @@ ajaxSpinner = ->
 App.onLoad = ->
   ajaxSpinner()
   App.view = new Application el: $(".mainPage")
-  updateHeight  = (e, ret = true)->
-    $('.ui-content').css("height","#{maxHeight = $(window).height() - 128 }px")
-    $('.ui-content').css("max-height","#{maxHeight = $(window).height() - 128 }px")
-    return
-#    height = $("#mybook").width() * 0.76
-#    $('.ui-content').css("height","#{height}px")
-#    $('#mybook').css("height","#{height}px")
-#    $('#mybook').css("max-height","#{height}px !important")
-  updateHeight undefined,false
-#  $(window).bind 'resize', updateHeight
 
-  $('#mybook').booklet({overlays: true,arrows: true,pageNumbers: false,closed: true,hovers:true,autoCenter:true,width: '75%',height: '97%'})
+
+
+  $('.ui-content').css("height","#{maxHeight = $(window).height() - $(".ui-header").height() - $(".ui-footer").height() - 10}px")
+
+  updateHeight  = (e, ret = true)->
+    cH = $(".ui-content").height()
+    cW = $(".ui-content").width()
+    # Ratio 1.375 width /height
+    # w / h = r
+    # r . h = w
+    # h = w / r
+    ratioBook = 1.37
+    ratio = cW / cH
+    container = $(".bookContainer")
+    if ratio < ratioBook
+      container.css("width","100%")
+      cW = container.width()
+      container.css("height","#{cW / ratioBook }px")
+    else
+
+      container.css("height","100%")
+      cH = container.height()
+      container.css("width","#{ratioBook * cH }px")
+
+  updateHeight undefined,false
+  $(window).bind 'resize', updateHeight
+
+  $('#mybook').booklet({overlays: true,arrows: true,pageNumbers: false,closed:true,hovers:true,autoCenter:true,width: '100%',height: '100%%'})
   $('#mybook').show()
-  $('.fcFrame').html '<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fdecohomelp&amp;width=420&amp;height=558&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=true&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:420px; height:558px;" allowTransparency="true" style="width:100%;height:100%"></iframe>'
+  #$('.fcFrame').html '<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fdecohomelp&amp;width=420&amp;height=558&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=true&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:420px; height:558px;" allowTransparency="true" style="width:100%;height:100%"></iframe>'
   App.view.renderHashPage()
   $(window).bind "hashchange", -> App.view.renderHashPage()
 

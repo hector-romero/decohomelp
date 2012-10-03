@@ -12,15 +12,10 @@
 .ui-content
     max-width: 970px
     margin: auto
+
 .b-wrap
     position: relative !important
-    float: left !important
-    left: auto !important
-.b-wrap.b-wrap-left, .b-left
-    right: 0px !important
-.b-wrap.b-wrap-right, .b-right
-    float: right !important
-    left: 0px !important
+
 .logo
     font-family: "decohomefont" !important //, Helvetica, Arial, sans-serif
     font-size: 47px
@@ -30,23 +25,20 @@
     bottom: 0px
     text-align: center
     width: 100%
-*
-    scroll: hidden
 
 #mybook
-    max-width: 738px !important
-    max-height: 100%
+    height: 100%
+    width: 100%
+    position: relative
     *
         max-height: 100%
-    .b-page, .b-page .b-wrap
-        max-width: 369px !important //370px !important
+.ui-header
+    padding-bottom: 1%
+    box-sizing: border-box
 .ui-content
     padding: 0
-    overflow-y: hidden
-    overflow-x: none
-    padding-top: 1%
     box-sizing: border-box
-    position: relative
+    height: 100%
 .ui-page
     background:
         image: url('background.jpg')
@@ -58,41 +50,25 @@ img
     max-height: 100%
     width: 100%
 
-.b-page
-    box-sizing: border-box
-    height: 100% !important
-    max-width: 50%
-.b-wrap
-    //background-color: transparent !important
-    height: auto !important
-    max-height: 100%
-.b-counter
-    background-color: transparent !important
-    font-weight: bold
-    font-size: 12px
 .b-arrow
     width: 12% !important
+    div
+        width: 100% !important
+        background-size: 100% auto !important
+        background-position: center center
+        height: 100% !important
+        top: 0 !important
+        background-position: center center !important
 .b-arrow.b-arrow-next
     right: -13% !important
+    float: right !important
+
 .b-arrow.b-arrow-prev
     left: -13% !important
-.b-arrow div
-    width: 100% !important
-    background-size: 100% auto !important
-    background-position: center center
-    height: 100% !important
-    top: 0 !important
-.b-arrow-next
-    float: right !important
-.b-arrow-prev
     float: left !important
-
-.b-arrow-next div
-    background-position: center right !important
-.b-arrow-prev div
-    background-position: center right !important
-    left: auto !important
-    right: 0
+    div
+        //left: auto !important
+        //right: 0
 
 .ui-header
     text-align: center
@@ -165,11 +141,16 @@ img
 a.noUnderline
     text-decoration: none
 
-//.ui-btn-inner
-//    margin: 0 !important
 .ui-btn
     border: 2px solid transparent !important
     border-radius: 9px
 .ui-btn:hover
     //border: 2px solid orange !important
     box-shadow: 3px
+
+.bookContainer
+    max-width: 1000px
+    height: 100%
+    width: 100%
+    margin: auto
+    position: relative
