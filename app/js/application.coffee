@@ -123,8 +123,8 @@ App.onLoad = ->
   $('.ui-content').css("height","#{maxHeight = $(window).height() - $(".ui-header").height() - $(".ui-footer").height() - 10}px")
 
   updateHeight  = (e, ret = true)->
-    $('.ui-content').css("height","#{maxHeight = $(window).height() - $(".ui-header").height() - $(".ui-footer").height() - 10}px")
-    cH = $(".ui-content").height()
+    $('.ui-content').css("height","#{maxHeight = $(window).height() - $(".ui-header").outerHeight(true) - $(".ui-footer").outerHeight(true)}px")
+    cH = $(".ui-content").outerHeight(true)
     cW = $(".ui-content").width()
     # Ratio 1.375 width /height
     # w / h = r
