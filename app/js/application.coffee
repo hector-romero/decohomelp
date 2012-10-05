@@ -99,6 +99,8 @@ class Application extends jQMView
       return @showPopupContact()
     if hash == 'facebook'
       return @showPopupFc()
+    if hash == 'promo'
+      return @showPopupPromo()
 
 
   showPopupContact: =>
@@ -106,6 +108,9 @@ class Application extends jQMView
 
   showPopupFc: =>
     $(".fcPopup").popup().popup 'open'
+
+  showPopupPromo: =>
+    $(".promoPopup").popup().popup 'open'
 
 
 

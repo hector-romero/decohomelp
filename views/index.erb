@@ -31,7 +31,6 @@
       <div data-role="header"><span class="logo">Deco Home LP</span><br/><span class="title">Catálogo Oficial</span></div>
       <div data-role="content">
           <span class="hereToAvoidGoogleTranslate" style="position:fixed;font-size:0px">Clicl</span>
-          <a class="frame"></a>
           <div class="bookContainer">
               <div id="mybook" style="display:none;">
                   <div><img src="assets/catalogo/1.png"></div>
@@ -48,9 +47,10 @@
         </div>
       </div>
       <div data-role="footer" class="footer">
-          <!--<a data-rel="external" class="fcLink btnContact" target="_blank" href="http://www.facebook.com/decohomelp" title="Nuestro Facebook">-->
-              <!--<img class="footerIcon"src="assets/facebook-logo.png">-->
-          <!--</a>-->
+
+          <a class="btnPromo" href="#promo" title="Promociones" data-ajax="false">
+              <img class="footerIcon"src="assets/start.png">
+          </a>
           <a class="btnFc fcLink" href="#facebook" title="Nuestro Facebook" data-ajax="false">
               <img class="footerIcon"src="assets/facebook-logo.png">
           </a>
@@ -85,6 +85,13 @@
         <div class="fcFrame" style="max-height:558px; width: 100%">
 
         </div>
+        <a data-role="button" class="cancel" data-rel='back' data-theme="a">Cerrar</a>
+
+    </div>
+  </div>
+  <div class="popup promoPopup" data-role="popup" data-theme="e" data-overlay-theme="a">
+    <div class="popupContent">
+        <img src="assets/promo.jpg"
         <a data-role="button" class="cancel" data-rel='back' data-theme="a">Cerrar</a>
 
     </div>
