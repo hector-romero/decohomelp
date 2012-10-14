@@ -9,7 +9,7 @@ App = {}
 class jQMView extends View
   _default_events =
 #    'popupbeforeposition .popup' : 'resizePopUp'
-    'popupafterclose .popup'     : 'removeHash'    
+    'popupafterclose .popup'     : 'removeHash'
     'click .back'                : 'goBack'
     'keypress input.numeric'     : 'filterNumericKeys'
     'input input.checkLength'    : 'maxLengthCheck'
