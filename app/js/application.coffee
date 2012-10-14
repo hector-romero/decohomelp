@@ -1,4 +1,5 @@
 #= require "vendor/jquery"
+#= require "vendor/jquery.nex-or-first"
 #=  require "vendor/jquery-ui.min"
 #= require "vendor/jquery.easing.1.3"
 #= require "vendor/jquery.booklet.1.4.0"
@@ -13,6 +14,23 @@ class jQMView extends View
     'click .back'                : 'goBack'
     'keypress input.numeric'     : 'filterNumericKeys'
     'input input.checkLength'    : 'maxLengthCheck'
+    'click .promoPopup'           : 'cicleImages'
+
+  cicleImages: =>
+    container = @$('.promoPopup .images')
+    container.height container.height()
+    container.width container.width()
+
+    images =  $(".promoPopup img")
+    return images.show() unless images.length > 1
+    visible =  $(".promoPopup img:visible")
+    imagesToToggle =  visible.add visible.nextOrFirst 'img'
+    imagesToToggle.toggle 'slow', =>
+        container.height 'auto'
+        container.width 'auto'
+
+
+
 
   removeHash: ->
     location.hash = ''

@@ -1,4 +1,3 @@
-
 #= require "application"
 #= require "vendor/jquery.mobile-1.2.0-rc.2"
 

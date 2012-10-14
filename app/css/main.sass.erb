@@ -160,11 +160,15 @@ a.noUnderline
     margin: auto
     position: relative
 
-.promoPopup img
-    height: auto
-    width: auto
-    //max-height: 85%
-    max-width: 100%
+.promoPopup
+    img
+        height: auto
+        width: auto
+        max-width: 100%
+        display: none
+    img:first-of-type
+        display: block
+
 .nextPromo
     position: absolute
     top: 50%
