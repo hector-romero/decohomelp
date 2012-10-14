@@ -1,5 +1,5 @@
 #= require "vendor/jquery"
-#= require "vendor/jquery-ui.min"
+#=  require "vendor/jquery-ui.min"
 #= require "vendor/jquery.easing.1.3"
 #= require "vendor/jquery.booklet.1.4.0"
 #= require "view"
@@ -34,29 +34,6 @@ class jQMView extends View
       e.returnValue = false
       e.preventDefault()
 
-  addError: ->
-    errorHtml = JST['templates/error_message']()
-    if @$(".pageTitle")[0]
-      @$(".pageTitle:first").after errorHtml
-    else if @$(".ui-header")[0]
-      @$(".ui-header:first").after errorHtml
-    else
-      @$el.prepend errorHtml
-
-  error: (errorMessage) ->
-    error = @$(".error")
-    unless @$(".error")[0]
-      @addError()
-      error = @$(".error")
-    error.html errorMessage
-    error.slideDown()
-    null
-
-  clearError: =>
-    error = @$(".error")
-    error.slideUp()
-    error.html ''
-
   headerTemplate: (title) ->
     JST['templates/header'] title:title
 
@@ -85,13 +62,6 @@ class jQMView extends View
     throw "Must override"
 
 class Application extends jQMView
-  events:
-#    'click .btnContact' : 'showPopupContact'
-#    'click .btnFc' : 'showPopupFc'
-    'click #del' : 'delete'
-
-  delete: ->
-    $("body").html('')
 
   renderHashPage: =>
     hash = location.hash.replace('#','').toLowerCase()
@@ -102,7 +72,6 @@ class Application extends jQMView
     if hash == 'promo'
       return @showPopupPromo()
 
-
   showPopupContact: =>
     $(".contactPopup").popup().popup 'open'
 
@@ -111,8 +80,6 @@ class Application extends jQMView
 
   showPopupPromo: =>
     $(".promoPopup").popup().popup 'open'
-
-
 
 ajaxSpinner = ->
     spinner = $(".ui-loader")
@@ -168,6 +135,5 @@ $(document).bind "mobileinit", ->
             transitionFallbacks: slidefade: "slidefade"
 #Exports:
 window.App = App
-
 
 

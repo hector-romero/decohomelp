@@ -41,7 +41,9 @@
                   <div><img src="assets/catalogo/6.png"></div>
                   <div><img src="assets/catalogo/7.png"></div>
                   <div><img src="assets/catalogo/8.png"></div>
+                  <div><img src="assets/catalogo/11.png"></div>
                   <div><img src="assets/catalogo/9.png"></div>
+                  <div><img src="assets/blank.png"></div>
                   <div><img src="assets/catalogo/10.png"></div>
               </div>
         </div>
@@ -90,8 +92,19 @@
     </div>
   </div>
   <div class="popup promoPopup" data-role="popup" data-theme="e" data-overlay-theme="a">
-    <div class="popupContent">
-        <img src="assets/promo.jpg">
+        <div class="popupContent" onclick="
+                var height = $('.promoPopup .images').height();
+                $('.promoPopup .images').height(height)
+                $('.promoPopup img').toggle('slow',function(){$('.promoPopup .images').height('auto')})
+
+        ">
+        <div class="images">
+            <a class="nextPromo" href="javascript:void(0)">otra</a>
+            <img src="assets/promo2.jpg" style="">
+            <img src="assets/promo.jpg" style="display: none">
+        </div>
+
+        <div style="clear: both"></div>
         <a data-role="button" class="cancel" data-rel='back' data-theme="a">Cerrar</a>
 
     </div>
