@@ -46,8 +46,10 @@ class jQMView extends View
   goBack: =>
     Views.navigator.navigate @options.prevPage, reverse: true
 
-  resizePopUp:(e) ->
-    $(e.target).css("width",Math.floor($(window).width() * 0.9) + 'px')
+#  resizePopUp:(e) ->
+
+#    $(e.target).css("width",Math.floor($(window).width() * 0.9) + 'px')
+#    $(e.target).css("max-height",Math.floor($(window).height() * 0.9) + 'px')
 
   initialize: ->
     @options['data-url'] or= @id
@@ -61,6 +63,11 @@ class jQMView extends View
     throw "Must override"
 
 class Application extends jQMView
+  events:
+      'popupbeforeposition .popup.promoPopup' : 'fitPromoPopUp'
+
+  fitPromoPopUp: =>
+    @$('.promoPopup').css 'max-width', $(window).height() * 1.20
 
   renderHashPage: =>
     hash = location.hash.replace('#','').toLowerCase()
